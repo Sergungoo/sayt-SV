@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Сергей Венгеренко — AI Engineer</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <style>
     body{
+      margin:0;
       font-family: Inter, sans-serif;
       background:#070A12;
       color:#E5E7EB;
@@ -24,24 +23,68 @@
 
     .bebas{ font-family:"Bebas Neue", sans-serif; }
 
-    /* premium glow background */
-    .bg-glow{
-      background: radial-gradient(circle at top, rgba(99,102,241,0.25), transparent 40%),
-                  radial-gradient(circle at bottom, rgba(236,72,153,0.12), transparent 50%),
-                  #070A12;
+    /* HERO BACKGROUND */
+    .hero{
+      position: relative;
+      height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
     }
 
-    /* glass */
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background-image:url("photo.jpg"); /* <-- ТВОЕ ФОТО */
+      background-size:cover;
+      background-position:center;
+      transform: scale(1.05);
+      filter: contrast(1.05) brightness(0.75);
+    }
+
+    /* dark overlay for readability */
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    /* gradient fade into next section */
+    .hero-fade{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:220px;
+      background: linear-gradient(to bottom, transparent, #070A12);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:10;
+      max-width:900px;
+      padding:0 24px;
+    }
+
     .glass{
       background: rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(14px);
     }
 
-    /* animation base */
+    .btn{
+      transition:0.3s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-3px);
+    }
+
     .reveal{
       opacity:0;
-      transform: translateY(18px);
+      transform: translateY(20px);
       transition: all 0.8s cubic-bezier(.2,.8,.2,1);
     }
 
@@ -49,211 +92,120 @@
       opacity:1;
       transform: translateY(0);
     }
-
-    .hover-lift{
-      transition: all .35s ease;
-    }
-
-    .hover-lift:hover{
-      transform: translateY(-6px);
-      border-color: rgba(255,255,255,0.18);
-    }
   </style>
 </head>
 
-<body class="bg-glow">
-
-<!-- ================= HEADER ================= -->
-<header class="fixed top-0 left-0 w-full z-50 glass">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-
-    <div class="font-semibold tracking-wide">
-      Сергей Венгеренко
-    </div>
-
-    <nav class="hidden md:flex gap-6 text-sm text-gray-300">
-      <a href="#about" class="hover:text-white">Обо мне</a>
-      <a href="#services" class="hover:text-white">Услуги</a>
-      <a href="#cases" class="hover:text-white">Кейсы</a>
-      <a href="#contact" class="hover:text-white">Контакты</a>
-    </nav>
-
-    <a href="https://t.me/SergoVen_ai"
-       class="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-200 transition">
-      Связаться
-    </a>
-  </div>
-</header>
+<body>
 
 <!-- ================= HERO ================= -->
-<section id="about" class="pt-32 max-w-6xl mx-auto px-6">
+<section class="hero">
 
-  <div class="grid md:grid-cols-2 gap-10 items-center">
+  <!-- background image -->
+  <div class="hero-bg"></div>
 
-    <!-- TEXT -->
-    <div class="reveal">
-      <h1 class="bebas text-6xl md:text-7xl leading-none">
-        AI-АВТОМАТИЗАЦИЯ <br/> ДЛЯ БИЗНЕСА
-      </h1>
+  <!-- dark overlay -->
+  <div class="hero-overlay"></div>
 
-      <p class="mt-6 text-gray-400 text-lg">
-        Настройка ИИ под вас, разработка AI-инструментов, контент-систем, автоматизация задач на базе искусственного интеллекта
-      </p>
+  <!-- fade into next section -->
+  <div class="hero-fade"></div>
 
-      <a href="https://t.me/SergoVen_ai"
-         class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-xl font-medium hover:scale-105 transition">
-        Обсудить проект
-      </a>
-    </div>
+  <!-- content -->
+  <div class="hero-content reveal show">
 
-    <!-- IMAGE (16:9 HERO) -->
-    <div class="reveal">
-      <div class="rounded-2xl overflow-hidden glass shadow-2xl aspect-video">
-        <!-- ЗАМЕНИ: photo.jpg -->
-        <img src="photo.jpg" class="w-full h-full object-cover" alt="Sergey AI Engineer">
-      </div>
-    </div>
+    <h1 class="bebas text-5xl md:text-7xl leading-none">
+      АВТОМАТИЗАЦИЯ БИЗНЕСА <br/>
+      С ПОМОЩЬЮ AI
+    </h1>
+
+    <p class="mt-6 text-gray-300 text-lg">
+      Настройка ИИ под вас, разработка AI-инструментов, контент-систем, автоматизация задач на базе искусственного интеллекта
+    </p>
+
+    <a href="https://t.me/SergoVen_ai"
+       class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-xl font-medium btn">
+      Обсудить проект
+    </a>
 
   </div>
 </section>
 
 <!-- ================= SERVICES ================= -->
-<section id="services" class="max-w-6xl mx-auto px-6 mt-24">
+<section class="max-w-6xl mx-auto px-6 mt-24">
 
-  <h2 class="text-3xl font-semibold mb-10 reveal">Что я делаю</h2>
+  <h2 class="text-3xl font-semibold mb-10">Что я делаю</h2>
 
   <div class="grid md:grid-cols-4 gap-6">
 
-    <div class="glass p-6 rounded-2xl hover-lift reveal">
-      <div class="text-white font-semibold mb-2">AI-Консалтинг</div>
-      <p class="text-gray-400 text-sm">Разбор бизнеса и внедрение AI-решений.</p>
+    <div class="glass p-6 rounded-2xl">AI-Консалтинг</div>
+    <div class="glass p-6 rounded-2xl">AI-Контент</div>
+    <div class="glass p-6 rounded-2xl">AI-Видео</div>
+    <div class="glass p-6 rounded-2xl">AI-Автоматизация</div>
+
+  </div>
+</section>
+
+<!-- ================= CASES ================= -->
+<section class="max-w-6xl mx-auto px-6 mt-24">
+
+  <h2 class="text-3xl font-semibold mb-8">Кейсы</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="glass p-6 rounded-2xl">
+      <div class="text-gray-400 text-sm">Мария Соколова</div>
+      <div class="font-semibold">AI для эксперта</div>
+      <p class="text-gray-400 text-sm mt-3">
+        Настроена система генерации контента и идей через AI.
+      </p>
     </div>
 
-    <div class="glass p-6 rounded-2xl hover-lift reveal">
-      <div class="text-white font-semibold mb-2">AI-Контент</div>
-      <p class="text-gray-400 text-sm">Системы генерации контента и автоматизация соцсетей.</p>
+    <div class="glass p-6 rounded-2xl">
+      <div class="text-gray-400 text-sm">Алексей Громов</div>
+      <div class="font-semibold">Автоматизация бизнеса</div>
+      <p class="text-gray-400 text-sm mt-3">
+        AI-бот для обработки заявок и первичных сообщений.
+      </p>
     </div>
 
-    <div class="glass p-6 rounded-2xl hover-lift reveal">
-      <div class="text-white font-semibold mb-2">AI-Видео</div>
-      <p class="text-gray-400 text-sm">Автогенерация видео и сценариев.</p>
-    </div>
-
-    <div class="glass p-6 rounded-2xl hover-lift reveal">
-      <div class="text-white font-semibold mb-2">AI-Обучение</div>
-      <p class="text-gray-400 text-sm">Внедрение AI в бизнес-процессы.</p>
+    <div class="glass p-6 rounded-2xl">
+      <div class="text-gray-400 text-sm">Екатерина Левина</div>
+      <div class="font-semibold">AI-контент система</div>
+      <p class="text-gray-400 text-sm mt-3">
+        Видео и фото контент создаются через AI pipeline.
+      </p>
     </div>
 
   </div>
 </section>
 
 <!-- ================= AUDIENCE ================= -->
-<section class="max-w-6xl mx-auto px-6 mt-24 reveal">
+<section class="max-w-6xl mx-auto px-6 mt-24">
 
   <h2 class="text-3xl font-semibold mb-6">Для кого</h2>
 
-  <div class="glass p-8 rounded-2xl text-gray-300">
-    Эксперты, предприниматели, помогающие практики и бизнес, которому нужно убрать рутину,
-    ускорить процессы и внедрить AI-автоматизацию.
+  <div class="glass p-8 rounded-2xl text-gray-400">
+    Эксперты, предприниматели и бизнес, которому нужна автоматизация, контент и AI-инструменты.
   </div>
 
-</section>
-
-<!-- ================= CONTACT FORM (TELEGRAM WEBHOOK) ================= -->
-<section id="contact" class="max-w-6xl mx-auto px-6 mt-24 reveal">
-
-  <h2 class="text-3xl font-semibold mb-6">Заявка</h2>
-
-  <div class="glass p-8 rounded-2xl">
-
-    <form id="tgForm" class="grid gap-4">
-
-      <input type="text" id="name" placeholder="Имя"
-             class="p-3 rounded-xl bg-black/40 border border-white/10">
-
-      <input type="text" id="contactField" placeholder="Telegram или телефон"
-             class="p-3 rounded-xl bg-black/40 border border-white/10">
-
-      <textarea id="message" placeholder="Описание задачи"
-                class="p-3 rounded-xl bg-black/40 border border-white/10 h-28"></textarea>
-
-      <button type="submit"
-              class="bg-white text-black py-3 rounded-xl font-medium hover:scale-105 transition">
-        Отправить в Telegram
-      </button>
-
-    </form>
-
-    <p class="text-xs text-gray-500 mt-4">
-      Отправка идёт через Telegram webhook (нужно подключить Bot API).
-    </p>
-
-  </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="max-w-6xl mx-auto px-6 mt-24 mb-12 reveal">
+<section class="max-w-6xl mx-auto px-6 mt-24 mb-20">
 
-  <div class="glass p-8 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-6">
+  <div class="glass p-8 rounded-2xl flex justify-between items-center">
 
-    <div class="text-sm text-gray-500">
+    <div class="text-gray-400 text-sm">
       © 2026 Сергей Венгеренко
     </div>
 
     <a href="https://t.me/SergoVen_ai"
-       class="bg-white text-black px-5 py-2 rounded-xl font-medium hover:scale-105 transition">
+       class="bg-white text-black px-5 py-2 rounded-xl btn">
       Telegram
     </a>
 
   </div>
 
-</footer>
-
-<!-- ================= ANIMATION ENGINE (Framer-like) ================= -->
-<script>
-  // Scroll reveal animation
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('show');
-      }
-    });
-  },{ threshold:0.12 });
-
-  document.querySelectorAll('.reveal').forEach(el=>{
-    observer.observe(el);
-  });
-
-  // Telegram webhook (placeholder)
-  const form = document.getElementById('tgForm');
-
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-
-    const data = {
-      name: document.getElementById('name').value,
-      contact: document.getElementById('contactField').value,
-      message: document.getElementById('message').value
-    };
-
-    // ЗАМЕНИ НА СВОЙ WEBHOOK (например n8n / make / backend)
-    const WEBHOOK_URL = "https://your-webhook-url.com";
-
-    try{
-      await fetch(WEBHOOK_URL,{
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(data)
-      });
-
-      alert("Заявка отправлена");
-      form.reset();
-
-    }catch(err){
-      alert("Ошибка отправки. Подключи webhook");
-    }
-  });
-</script>
+</section>
 
 </body>
 </html>
