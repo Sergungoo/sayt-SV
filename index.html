@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     body{
@@ -23,6 +23,9 @@
     }
 
     .bebas{ font-family:"Bebas Neue", sans-serif; }
+    .oswald {
+  font-family: "Oswald", sans-serif;
+}
 
     /* premium glow background */
     .bg-glow{
@@ -85,12 +88,21 @@
   </div>
 </header>
 
-<!-- ================= HERO (FULL WIDTH IMAGE BACKGROUND FIX) ================= -->
-<section id="about" class="relative pt-32 w-full overflow-hidden">
+<!-- HERO BACKGROUND FIXED -->
+<div class="absolute inset-0 -z-10">
 
-  <!-- FULL WIDTH BACKGROUND IMAGE -->
-  <div class="absolute inset-0 -z-10">
-    <img src="photo.jpg" class="w-full h-full object-cover" alt="background"/>
+  <!-- IMAGE -->
+  <img src="photo.jpg"
+       class="w-full h-full object-cover object-right"
+       alt="photo"/>
+
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  <!-- GRADIENT TO NEXT SECTION -->
+  <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-[#070A12]"></div>
+
+</div>
 
     <!-- затемнение для читаемости -->
     <div class="absolute inset-0 bg-black/60"></div>
@@ -102,13 +114,15 @@
   <!-- контент НЕ ТРОГАЕМ по структуре -->
   <div class="max-w-6xl mx-auto px-6">
 
-    <div class="grid md:grid-cols-2 gap-10 items-center">
+    <div class="grid md:grid-cols-2 gap-10 items-center min-h-[80vh]">
 
       <!-- TEXT (оставлено как было) -->
       <div class="reveal">
-        <h1 class="bebas text-6xl md:text-7xl leading-none">
-          AI-АВТОМАТИЗАЦИЯ <br/> ДЛЯ БИЗНЕСА
-        </h1>
+        <h1 class="leading-none whitespace-nowrap">
+  <span class="bebas text-6xl md:text-7xl">AI-</span> 
+  <span class="oswald text-5xl md:text-6xl">АВТОМАТИЗАЦИЯ <br/>
+ДЛЯ БИЗНЕСА</span>
+</h1>
 
         <p class="mt-6 text-gray-400 text-lg">
           Настройка ИИ под вас, разработка AI-инструментов, контент-систем, автоматизация задач на базе искусственного интеллекта
@@ -146,13 +160,13 @@
     </div>
 
     <div class="glass p-6 rounded-2xl hover-lift reveal">
-      <div class="text-white font-semibold mb-2">AI-Видео</div>
-      <p class="text-gray-400 text-sm">Автогенерация видео и сценариев.</p>
+      <div class="text-white font-semibold mb-2">AI Фото-Видео</div>
+      <p class="text-gray-400 text-sm">Генерация фото-видео и сценариев для Ваших соцаиальных сетей.</p>
     </div>
 
     <div class="glass p-6 rounded-2xl hover-lift reveal">
       <div class="text-white font-semibold mb-2">AI-Обучение</div>
-      <p class="text-gray-400 text-sm">Внедрение AI в бизнес-процессы.</p>
+      <p class="text-gray-400 text-sm">Обучение ИИ для Ваших задач, подбор нужных моделей ИИ.</p>
     </div>
 
   </div>
@@ -228,10 +242,60 @@
 
 </section>
 
+<!-- ================= CONTACTS ================= -->
+<section id="contacts" class="max-w-6xl mx-auto px-6 mt-24 reveal">
+
+  <h2 class="text-3xl font-semibold mb-6">Контакты</h2>
+
+  <div class="glass p-8 rounded-2xl grid md:grid-cols-5 gap-6">
+
+    <!-- Telegram -->
+    <a href="https://t.me/SergoVen_ai" target="_blank"
+       class="flex flex-col items-center gap-2 hover:opacity-80 transition">
+
+      <div class="text-3xl">✈️</div>
+      <div class="font-semibold">Telegram</div>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/sergoven_ai" target="_blank"
+       class="flex flex-col items-center gap-2 hover:opacity-80 transition">
+
+      <div class="text-3xl">📷</div>
+      <div class="font-semibold">Instagram</div>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@Sergoven_ai" target="_blank"
+       class="flex flex-col items-center gap-2 hover:opacity-80 transition">
+
+      <div class="text-3xl">▶️</div>
+      <div class="font-semibold">YouTube</div>
+    </a>
+
+    <!-- VK -->
+    <a href="https://vk.com/sergoven_ai" target="_blank"
+       class="flex flex-col items-center gap-2 hover:opacity-80 transition">
+
+      <div class="text-3xl">🟦</div>
+      <div class="font-semibold">VK</div>
+    </a>
+
+    <!-- MAX -->
+    <a href="https://max.ru/u/f9LHodD0cOINAxoRUA682OdQiMWdTv35JF6bqxBY8eQrnsuqoWQt-Vy3Ox0" target="_blank"
+       class="flex flex-col items-center gap-2 hover:opacity-80 transition">
+
+      <div class="text-3xl">💬</div>
+      <div class="font-semibold">MAX</div>
+    </a>
+
+  </div>
+</section>
+
 <!-- ================= CONTACT FORM (TELEGRAM WEBHOOK) ================= -->
 <section id="contact" class="max-w-6xl mx-auto px-6 mt-24 reveal">
 
-  <h2 class="text-3xl font-semibold mb-6">Заявка</h2>
+  <h2 class="text-3xl font-semibold mb-6">Обсудить проект</h2>
 
   <div class="glass p-8 rounded-2xl">
 
